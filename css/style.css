@@ -1,0 +1,718 @@
+html, body {
+    font-family: Ubuntu;
+    background-color: #333;
+    color: aliceblue;
+    font-size: 18px;
+}
+
+/* ПАЛИТРА
+#45f9ff    - ярко голубой
+#18aaff   - голубой
+#0159fd   - синий
+aliceblue - нежно белый
+#сecece   - светло серый
+#a5a5a5   - чуть темнее светло серый
+#444      - темно серый
+#191b25   - 2 бгшник
+... */
+
+.hero {
+    height: auto;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    filter: blur(300px);
+    z-index: -1;
+}
+
+
+.video-bg {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    /* Видео заполнит весь блок без искажений */
+    z-index: -1;
+    /* Уводим видео под контент */
+    filter: blur(2.5px) brightness(0.7);
+}
+
+/* ?????????????????????????? */
+.button__invisible {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* ??????????????????????????????? */
+
+.button1 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#18aaff, #0159fd);
+    height: 50px;
+    width: 3.5cm;
+    border-radius: 50px;
+    box-shadow: 0 0 3px 3px rgba(44, 65, 255, 0.4);
+    color: #cecece;
+    transition: .4s;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Ubuntu;
+}
+
+.button1:hover {
+    box-shadow: 0 0 5px 4px rgba(0, 102, 255, 0.7);
+    color: aliceblue;
+}
+
+.button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 3.5cm;
+    border-radius: 50px;
+    background: #282b3ba9;
+    box-shadow: 0 0 1px 1px #555a8393;
+    transition: .4s;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Ubuntu;
+    color: #cecece;
+}
+
+.button2:hover {
+    background: #373b52a9;
+    box-shadow: 0 0 5px 5px #555a8393;
+    color: aliceblue;
+}
+
+.rate {
+    padding: 15px;
+    border-radius: 20px;
+    background: linear-gradient(#1b8188ad, #7de1ff9d);
+    border: 1px solid #2edfeb;
+    height: 45px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* /////////////// */
+.desc {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    text-shadow: 0px 0px 5px #000000;
+    color: #a5a5a5;
+}
+
+/* /////////////////////////// */
+
+.add-info {
+    background: linear-gradient(#3c796f9d, #22bec9d2);
+    border-radius: 20px;
+    border: 1px solid hsl(165, 99%, 50%);
+    height: 30px;
+    width: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status {
+    padding: 15px;
+    background: linear-gradient(#0084ff93, #6985c0d5);
+    box-shadow:0px 0px 10px 5px #0044ff9d;
+    border-radius: 20px;
+    border: 1px solid #0547fa;
+    height: 45px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* \\\\\\\\\\\\\\\\\\\\\\\ */
+
+.header__top {
+    background: linear-gradient(180deg, #000000fa 3%, #00000000 100%);
+    backdrop-filter: blur(5px);
+    color: #cecece;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+}
+
+.container__header {
+    max-width: 1600px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.header__top-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header__logo {
+    display: flex;
+    background: linear-gradient(60deg, #18aaff, #0159fd);
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px rgba(44, 65, 255, 0.4);
+    margin-right: 10px;
+    transition: .4s;
+}
+
+.header__logo:hover {
+    box-shadow: 0 0 5px 4px rgba(0, 102, 255, 0.7);
+}
+
+.header__logo-cont {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.header__logo-text {
+    font-size: 30px;
+    background: linear-gradient(60deg, #18aaff, #0159fd);
+    /* 2. Обрезаем фон по форме текста (работает в Chrome, Safari, Edge, Firefox) */
+    background-clip: text;
+    /* 3. Делаем сам текст прозрачным, чтобы был виден фон */
+    color: transparent;
+    /* 4. Добавляем префикс для лучшей поддержки браузеров */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header__logo-text1 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.header__nav {}
+
+.header__list {
+    display: flex;
+    align-items: end;
+}
+
+.header__list-text {
+    margin-right: 40px;
+}
+
+.header__list-text:last-child {
+    margin-right: 0;
+}
+
+.header__nav-link {
+    position: relative;
+}
+
+.header__nav-link:hover {
+    color: #18aaff;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.header__nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #18aaff;
+    /* Цвет линии */
+    transition: width .4s;
+}
+
+.header__nav-link:hover::after {
+    width: 100%;
+}
+
+.header__btn-box {
+    display: flex;
+    align-items: center;
+}
+
+.header__top-btn-find {
+    background: none;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    color: #cecece;
+    transition: all .4s;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Ubuntu;
+}
+
+
+.header__top-btn-find:hover {
+    color: aliceblue;
+}
+
+.daughter__top {
+    fill: currentColor;
+}
+
+.header__top-btn-find-svg1 {
+    stroke: currentColor;
+}
+
+.header__top-btn {}
+
+/* //////////////////////////////////////////////////////// */
+
+.hero__body {
+    color: #cecece;
+}
+
+.container__hero {
+    padding: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Две равные колонки */
+    height: 100vh;
+}
+
+.hero__main {}
+
+.hero__content {}
+
+.hero__life {
+    animation: pulse-shadow 1.8s infinite;
+    color: #18aaff;
+    margin-top: 2.5cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 200px;
+    border-radius: 50px;
+    background: rgb(24, 170, 255, 0.2);
+    box-shadow: 0 0 0 1px rgba(24, 170, 255);
+}
+
+@keyframes pulse-shadow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(24, 170, 255);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+.hero__title {
+    padding-top: 15px;
+    text-shadow: 0px 0px 35px rgba(24, 170, 255);
+    color: rgb(206, 206, 206);
+    font-size: 150px;
+}
+
+.hero__title-z {
+    padding-top: 15px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #18aaff;
+    text-shadow: 0px 0px 5px #000000;
+
+}
+
+.hero__title-desc {
+    padding-top: 15px;
+    font-weight: 400;
+    text-shadow: 0px 0px 5px #000000;
+    color: #a5a5a5;
+}
+
+.hero__info {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.hero__info-rate {
+
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 30px;
+}
+
+.hero__info-rate-star {}
+
+.hero__info-category {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 30px;
+
+}
+
+.hero__buttons {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero__buttons-buy {
+    width: 200px;
+    overflow: visible;
+}
+
+.hero__buttons-buy-ticket {
+    fill: #cecece;
+    margin-right: 5px;
+    transition: .4s;
+}
+
+.hero__buttons-buy:hover .hero__buttons-buy-ticket {
+    fill: aliceblue;
+}
+
+.hero__buttons-buy-arrow {
+    color: #cecece;
+    transition: .4s;
+}
+
+.hero__buttons-buy:hover .hero__buttons-buy-arrow {
+    transform: translateX(8.5px);
+    color: aliceblue;
+}
+
+/* ////////////////////////////////////// */
+
+
+
+.cards {
+    color: #cecece;
+}
+
+.cards__title-text {
+    display: flex;
+    background-color: #1a1c24;
+    justify-content: flex-start;
+    padding: 70px;
+    padding-bottom: 200px;
+    grid-template-columns: 1fr 1fr;
+    /* Две равные колонки */
+    flex-direction: column;
+    /* Элементы друг под другом */
+}
+
+.cards__popular-text {
+    color: #18aaff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 0 20px rgba(24, 170, 255);
+}
+
+.cards__title {
+    margin-bottom: 15px;
+    font-size: 50px;
+    line-height: 1;
+    color: aliceblue;
+}
+
+.cards__title-button {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cards__button {
+    margin-top: 20px;
+}
+
+.cards__title-desc {
+    font-size: 18px;
+    font-weight: 400;
+    color: #a5a5a5;
+}
+
+/* //////// */
+
+.cards__file {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px;
+}
+
+.cards__file-main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    /* Элементы встанут в колонку */
+    align-items: flex-start;
+    margin-top: 30px;
+    border: 2px solid #282b3b;
+    box-shadow: 0 0 15px 15px #1c1e29;
+    border-radius: 20px;
+    background-color: #282b3b;
+    width: 100%;
+    height: auto;
+    color: aliceblue;
+    overflow: hidden;
+    transition: .4s all;
+}
+
+.cards__file-image {
+    box-shadow: inset 0 0 15px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cards__file-main:hover {
+    /* 1. Делаем прозрачную рамку нужной толщины */
+    border: 2px solid transparent;
+    /* 2. Скругляем углы */
+    border-radius: 15px;
+
+    /* 3. Магия: первый градиент — это фон карточки (например, темный), 
+     второй — это сама рамка */
+    background-image: linear-gradient(#1a1d2900, #1a1d29),
+        linear-gradient(to right, #18aaff, #0159fd);
+
+    /* 4. Ограничиваем фоны: первый внутри контента, второй по границе рамки */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.cards__file-interesting {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    /* Раскидывает элементы в разные стороны */
+    align-items: center;
+    left: 0;
+    right: 0;
+    margin: 15px;
+}
+
+/* ======================== */
+
+.cards__file-rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    font-size: 20px;
+}
+
+.star {
+
+}
+
+.cards__file-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    font-size: 20px;
+    gap: 5px;
+}
+
+.fire {}
+
+/* ================== */
+
+.film {
+    width: 100%;
+    /* Растягивает по ширине блока */
+    height: auto;
+    display: block;
+    transition: .4s;
+    position: relative;
+
+}
+
+.cards-btn-wrap {
+    position: absolute;
+    display: flex;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%) scale(0.9);
+    opacity: 0;
+    transition: .4s;
+}
+
+
+.cards__file-main:hover .cards-btn-wrap {
+    opacity: 1;
+}
+
+
+.cards__file-main:hover .cards-file-desc {
+    color: #2edfeb;
+}
+
+.book-btn {
+    font-size: 23px;
+    height: 70px;
+    width: 230px;
+    transition: all .4s;
+}
+
+.book-btn:hover {
+    box-shadow: 0 0 10px 10px rgba(44, 65, 255, 0.4);
+}
+
+
+.cards__file-text-desc {
+    margin: 30px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.cards-file-desc {
+    font-size: 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: bold;
+    transition: .4s all;
+}
+
+.cards-file-desc2 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.cards-file-genre {
+    font-size: 20px;
+    height: 45px;
+    width: auto;
+    padding: 15px;
+}
+
+.cards__file-film-time {
+    display: flex;
+    white-space: nowrap;
+}
+
+
+.book-btn {
+    transition: .4s all;
+}
+
+.book-btn:hover .hero__buttons-buy-ticket {
+    fill: aliceblue;
+}
+
+.hero__buttons-buy {
+    width: 200px;
+    overflow: visible;
+}
+
+.hero__buttons-buy-ticket {
+    fill: #cecece;
+    margin-right: 5px;
+    transition: .4s;
+}
+
+.hero__buttons-buy:hover .hero__buttons-buy-ticket {
+    fill: aliceblue;
+}
+
+/* .......................................................... */
+
+hr {
+    border-top: 1px solid #282b3b; /* Толщина 1px и темно-серый цвет */
+}
+
+.title__container {
+    padding: 50px;
+    background-color:#1a1c24;
+}
+
+.title-logo {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 25px;
+    background: linear-gradient(60deg, #18aaff, #0159fd);
+    /* 2. Обрезаем фон по форме текста (работает в Chrome, Safari, Edge, Firefox) */
+    background-clip: text;
+    /* 3. Делаем сам текст прозрачным, чтобы был виден фон */
+    color: transparent;
+    /* 4. Добавляем префикс для лучшей поддержки браузеров */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-pic {
+    display: flex;
+    background: linear-gradient(60deg, #18aaff, #0159fd);
+    border-radius: 5px;
+    box-shadow: 0 0 3px 3px rgba(44, 65, 255, 0.4);
+    margin-right: 10px;
+}
+
+.title-logo-desc {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+.title-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 13px;
+    color: #a5a5a5;
+}
